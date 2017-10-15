@@ -9,9 +9,9 @@ public class Client {
         String cretiria = "c";
         String className = "";
         if("c".equals(cretiria)){
-            className = "com.ecvlearning.javaee.reflection.ReflectionExample";
+            className = "ReflectionExample";
         }else{
-            className = "com.ecvlearning.javaee.reflection.ReflectionExample2";
+            className = "ReflectionExample2";
         }
 
         Class cls = Class.forName(className);
