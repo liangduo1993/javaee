@@ -20,9 +20,44 @@ public class Client {
 //        userRequestThread.start();
 //        userRequestThread2.start();
 
-        Callable response = new Response();
-        ExecutorService executor = Executors.newFixedThreadPool(10);
-        Future<String> future = executor.submit(response);
-        System.out.println(future.get());
+//        Callable response = new Response();
+//        ExecutorService executor = Executors.newFixedThreadPool(10);
+//        Future<String> future = executor.submit(response);
+//        System.out.println(future.get());
+
+
+        final Runner runner = new Runner();
+
+        Thread t1 = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    runner.firstThread();
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        Thread t2 = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    runner.secondThread();
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        t1.start();
+        t2.start();
+
+        t1.join();
+        t2.join();
+
+        runner.finished();
     }
+
 }
+

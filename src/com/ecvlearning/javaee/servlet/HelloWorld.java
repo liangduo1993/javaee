@@ -26,7 +26,13 @@ public class HelloWorld extends HttpServlet {
         out.println("<h1>" + message + "</h1>");
     }
 
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        //do nothing
+    }
+
     public void destroy() {
         // do nothing.
+
     }
 }
