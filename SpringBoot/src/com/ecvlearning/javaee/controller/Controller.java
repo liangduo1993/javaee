@@ -1,21 +1,16 @@
 package com.ecvlearning.javaee.controller;
 
-import com.ecvlearning.javaee.Boot;
 import com.ecvlearning.javaee.model.Trade;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
-public class HellowWorld {
+@org.springframework.stereotype.Controller
+public class Controller {
 
-    Logger logger = LoggerFactory.getLogger(HellowWorld.class);
+    Logger logger = LoggerFactory.getLogger(Controller.class);
     Trade trade = new Trade();
-    public HellowWorld(){
+    public Controller(){
         trade.setId(1);
         trade.setPrice(1000);
         trade.setTicker("AAPL");
@@ -32,6 +27,17 @@ public class HellowWorld {
     Trade retrieveTrade(@PathVariable String id){
         logger.info("retrieve trade by id:"+id);
         if(this.trade.getId() == Integer.valueOf(id)) {
+            return this.trade;
+        }else{
+            return null;
+        }
+    }
+
+    @RequestMapping(value = "/listStockByTicker",  method = RequestMethod.GET)
+    public @ResponseBody Trade getListing(@RequestParam(value = "ticker", required = false) String ticker){
+        logger.info("Load stock listing "+ticker);
+
+        if(this.trade.getTicker().equals(ticker)){
             return this.trade;
         }else{
             return null;
