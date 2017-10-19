@@ -1,0 +1,8 @@
+Notification
+
+Business requirement:
+1. User should be able to get E-mail notification 1 day before the scheduled appointment
+2. User should be able to get e-mail survey request after the service
+3. Service follow-ups should be notified according to pre-defined schedule to corresponding representative
+
+Technical requirement:

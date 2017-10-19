@@ -1,0 +1,8 @@
+Book service online
+
+Business requirement:
+1. User should be able to book service
+2. User should be able to view/modify/cancel booked service
+3. The system should be able to keep the booked/cancelled service in sync with Google Calendar
+
+Technical requirement:

@@ -1,0 +1,8 @@
+1. Configure and install Tomcat
+2. Code 1 login page and 1 welcome page
+3. Implement login functionality using Filter and Servlet, the successfully logged user should be redirected to the welcome page.
+4. Retrieve a list of trades (ticker, price, buy/sell volume, buy/sell action, client name) from CSV file.
+5. The application should be able to search a specific transaction by any field listed above.
+6. Implement the same functionality using Spring Boot + Spring MVC
+7. Feel free to make assumptions
+8. Feel free to copy code from StackOverflow :)

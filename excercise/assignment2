@@ -1,0 +1,8 @@
+User access control
+
+Business requirement:
+1. The system allows everyone to create account.
+2. Administrators can add/remove/delete/modify account.
+
+Please provide technical interpretation of the above requirement and implement.
+Technical interpretation:
