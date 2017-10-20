@@ -18,13 +18,5 @@ public class Boot {
         logger.info("Review - A Spring Boot project started !");
     }
 
-//    @Bean
-//    public ViewResolver internalResourceViewResolver() {
-//        InternalResourceViewResolver bean = new InternalResourceViewResolver();
-//        bean.setViewClass(JstlView.class);
-////        bean.setPrefix("/WEB-INF/view/");
-//        bean.setSuffix(".html");
-//        return bean;
-//    }
 }
 

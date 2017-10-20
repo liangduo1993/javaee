@@ -5,6 +5,7 @@ public class Trade {
     String ticker;
     long price;
     String clientName;
+    String action;
 
     public int getId() {
         return id;
@@ -36,5 +37,13 @@ public class Trade {
 
     public void setClientName(String clientName) {
         this.clientName = clientName;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
     }
 }
