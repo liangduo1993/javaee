@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Admin</title>
+</head>
+<body>
+<form id="form_signup" action="/register">
+    Username(E-mail): <input name="input_username" type="text" />
+    Password: <input name="input_pwd" type="password" />
+    Description: <textarea name="input_desc"></textarea>
+    Role: <select name="sel_role">
+            <option value="user">user</option>
+            <option value="op">operator</option>
+            <option value="admin">admin</option>
+            </select>
+
+    <input type="submit" value="submit" />
+    <input type="reset" value="reset" />
+</form>
+</body>
+</html>

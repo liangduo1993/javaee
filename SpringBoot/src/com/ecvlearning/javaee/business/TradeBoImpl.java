@@ -24,5 +24,15 @@ public class TradeBoImpl implements TradeBo{
         return tradeDao.getTradeByPrice(low, high);
     }
 
+    @Override
+    public boolean createUser(String userName, String password, String desc, String role) throws IOException {
+        return tradeDao.createUser(userName,password,desc, role);
+    }
+
+    @Override
+    public boolean isUserExist(String userName) throws IOException {
+        return tradeDao.isUserExist(userName);
+    }
+
 
 }
