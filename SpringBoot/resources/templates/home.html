@@ -22,6 +22,8 @@
                 var high = $('#high').text;
                 loadTradeListByPrice(low, high)
             })
+
+            
         });
 
         function loadStockList(){
@@ -46,7 +48,7 @@
 
             $.ajax({
                 url: '/firstRestExample/'+$('#input_msg').val(),
-                method: 'DELETE',
+                type: 'DELETE',
                 success: function(text){
                     alert(text);
                     //$('#trade_list').html(JSON.stringify(text));
