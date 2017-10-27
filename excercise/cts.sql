@@ -400,8 +400,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cts`;
-INSERT INTO `cts`.`user` (`id`, `name`, `pwd`, `description`, `role_id`, `email`, `first_name`, `last_name`, `cv`) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', 1, 'chandler.zhu@cgi.com', 'Admin', 'Admin', NULL);
-INSERT INTO `cts`.`user` (`id`, `name`, `pwd`, `description`, `role_id`, `email`, `first_name`, `last_name`, `cv`) VALUES (2, 'general', 'a1536158cf8d8818ae9f3fe4de0af729', 'User for general prints', 1, 'general@cgi.com', 'General', 'Print', NULL);
+INSERT INTO `cts`.`user` (`id`, `name`, `pwd`, `description`, `role_id`, `email`, `first_name`, `last_name`, `cv`) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', 1, 'chandler.zhu@abc.com', 'Admin', 'Admin', NULL);
+INSERT INTO `cts`.`user` (`id`, `name`, `pwd`, `description`, `role_id`, `email`, `first_name`, `last_name`, `cv`) VALUES (2, 'general', 'a1536158cf8d8818ae9f3fe4de0af729', 'User for general prints', 1, 'general@abc.com', 'General', 'Print', NULL);
 
 COMMIT;
 
