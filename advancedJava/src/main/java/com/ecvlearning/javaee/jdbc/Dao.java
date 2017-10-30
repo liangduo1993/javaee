@@ -1,4 +1,4 @@
-package main.java.com.ecvlearning.javaee.jdbc;
+package com.ecvlearning.javaee.jdbc;
 
 //STEP 1. Import required packages
 import java.sql.*;
@@ -26,6 +26,7 @@ public class Dao {
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
+//            conn.setAutoCommit(false);
             String sql;
             sql = "SELECT id, user_name, password, birthday FROM user";
             ResultSet rs = stmt.executeQuery(sql);
@@ -44,6 +45,7 @@ public class Dao {
                 System.out.print(", Username: " + userName);
                 System.out.println(", Password: " + password);
             }
+//            conn.commit();
             //STEP 6: Clean-up environment
             rs.close();
             stmt.close();
