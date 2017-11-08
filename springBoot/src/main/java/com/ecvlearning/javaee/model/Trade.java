@@ -1,6 +1,8 @@
 package com.ecvlearning.javaee.model;
 
-public class Trade {
+import java.io.Serializable;
+
+public class Trade implements Serializable{
     int id;
     String ticker;
     long price;
