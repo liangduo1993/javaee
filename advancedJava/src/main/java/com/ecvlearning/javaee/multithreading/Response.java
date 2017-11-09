@@ -11,9 +11,13 @@ public class Response implements Callable{
         ReentrantLock lock = new ReentrantLock();
 
         for(int i =0; i<100000000;i++){
-            lock.tryLock();
-            count++;
-            lock.unlock();
+            boolean locked = lock.tryLock();
+            if(locked) {
+                count++;
+                lock.unlock();
+            }else{
+                i--;
+            }
         }
         return String.valueOf(count);
     }
