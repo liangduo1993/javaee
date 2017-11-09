@@ -1,12 +1,16 @@
 package com.ecvlearning.javaee.controller;
 
 
+import com.ecvlearning.javaee.dao.RoleRepo;
 import com.ecvlearning.javaee.dao.UserRepo;
+import com.ecvlearning.javaee.model.Role;
 import com.ecvlearning.javaee.model.Trade;
 import com.ecvlearning.javaee.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +28,9 @@ public class HtmlController {
     UserRepo userRepo;
 
     @Autowired
+    RoleRepo roleRepo;
+
+    @Autowired
     JmsTemplate jmsTemplate;
 
     @RequestMapping(value = "/page")
@@ -39,6 +46,33 @@ public class HtmlController {
         logger.info("Html controller userLt:");
         List<User> list = this.userRepo.findAll();
         return list;
+    }
+
+    @RequestMapping(value = "/roleLt")
+    public @ResponseBody List<Role> getRoleLt(){
+        logger.info("Html controller roleLt:");
+        List<Role> list = this.roleRepo.findAll();
+        return list;
+    }
+
+    @RequestMapping(value = "/getUser/{user}")
+    public @ResponseBody User getUserLt(@PathVariable String user){
+        logger.info("Html controller getUser:");
+        User list = this.userRepo.findByJPQL(user);
+        return list;
+    }
+
+    /**
+     *
+     * @param birthday
+     * @param page: starts from 0 !!!!!!!!!!!!!!!!1
+     * @return
+     */
+    @RequestMapping(value = "/getUser/{birthday}/{page}")
+    public @ResponseBody List<User> getUserLt(@PathVariable String birthday, @PathVariable int page){
+        logger.info("Html controller getUser with pager:");
+        Page<User> list = this.userRepo.findByNativeSql(birthday, new PageRequest(page, 2));
+        return list.getContent();
     }
 
     @RequestMapping(value = "/sendMsg/{ticker}")

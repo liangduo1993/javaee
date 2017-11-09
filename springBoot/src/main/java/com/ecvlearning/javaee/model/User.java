@@ -2,9 +2,9 @@ package com.ecvlearning.javaee.model;
 
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
@@ -17,6 +17,10 @@ public class User {
     String password;
     String description;
     Date birthday;
+
+    @ManyToOne
+    @JsonBackReference
+    Role role;
 
     public long getId() {
         return id;
@@ -56,5 +60,13 @@ public class User {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
