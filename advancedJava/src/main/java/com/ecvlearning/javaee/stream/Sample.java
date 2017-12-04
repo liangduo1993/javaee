@@ -6,8 +6,9 @@ import java.util.stream.Collectors;
 
 public class Sample {
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
+
         List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
+
         //Pay attention to parallelStream, don't use it unless there are heavy calculating involved
         List<String> results = strings.parallelStream().filter(string -> !string.isEmpty()).collect(Collectors.toList());
         results.stream().forEach(System.out::println);

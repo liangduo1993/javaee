@@ -11,7 +11,7 @@ public class PredicateConsumerExample {
 
         //Supplier instance with lambda expression
         Supplier<Trade> s = () -> new Trade();
-        Trade t = s.get();
+        Trade t = new Trade(); //s.get();
 
         //Supplier instance using method reference to default constructor
 //        Supplier<Trade> s2 = Trade::new;
@@ -21,13 +21,20 @@ public class PredicateConsumerExample {
         t.setTicker("IBM");
 
         Predicate<Trade> p = (trade) -> trade.price < 10 || trade.price > 50;
-        if(p.test(t)){
+        Predicate<Trade> p2 = (trade) -> trade.price < 5 || trade.price > 60;
+        if(p.or(p2).test(t)){
             Consumer<Trade> c = trade -> {trade.trade("Buy"); trade.trade("Sell");};
             c.accept(t);
         }
+
+        PredicateConsumerExample pce = new PredicateConsumerExample();
+        pce.doTrade(p,trade -> {trade.trade("Buy"); trade.trade("Sell");}, t);
+
     }
 
-    public void doTrade(Predicate<Trade> p, Consumer<Trade> c){
-
+    public void doTrade(Predicate<Trade> p, Consumer<Trade> c, Trade t){
+        if(p.test(t)){
+            c.accept(t);
+        }
     }
 }

@@ -8,7 +8,7 @@ public class UserRequestTest {
 
     @Test
     public void testThread() {
-        Runnable userRequest = new UserRequest(false);
+        Runnable userRequest = new UserRequest(true);
         Thread userRequestThread = new Thread(userRequest);
         Thread userRequestThread2 = new Thread(userRequest);
         userRequestThread.start();

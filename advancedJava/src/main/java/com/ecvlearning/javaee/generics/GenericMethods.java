@@ -14,5 +14,8 @@ public class GenericMethods {
 
         List<Integer> list = gm.test(new ArrayList<>());
         List<String> list2 = gm.test(new ArrayList<>());
+
+//        List<Integer> list = new ArrayList<>();
+//        List<Integer> listI = gm.test(list);
     }
 }
