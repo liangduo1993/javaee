@@ -17,4 +17,43 @@ public class FixedIncomeTransaction implements Transaction {
         gics.forEach(item->item.accept(ts));
     }
 
+    public List<Gic> getGics() {
+        return gics;
+    }
+
+    public void setGics(List<Gic> gics) {
+        this.gics = gics;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getTransactionFee() {
+        return transactionFee;
+    }
+
+    public void setTransactionFee(int transactionFee) {
+        this.transactionFee = transactionFee;
+    }
 }

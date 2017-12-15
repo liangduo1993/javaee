@@ -8,6 +8,6 @@ public class RiskAverseStrategy implements TradeStrategy{
 
     @Override
     public void trade(FixedIncomeTransaction transaction) {
-
+        System.out.println("Trade "+transaction.getSymbol()+" @ "+transaction.getPrice());
     }
 }
