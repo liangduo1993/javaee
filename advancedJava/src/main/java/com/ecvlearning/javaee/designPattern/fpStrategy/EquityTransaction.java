@@ -1,4 +1,4 @@
-package com.ecvlearning.javaee.designPattern.fp;
+package com.ecvlearning.javaee.designPattern.fpStrategy;
 
 
 public class EquityTransaction{

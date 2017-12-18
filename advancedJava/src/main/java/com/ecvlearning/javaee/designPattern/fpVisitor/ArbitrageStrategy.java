@@ -4,19 +4,19 @@ import java.util.function.Consumer;
 
 public class ArbitrageStrategy implements TradeStrategy{
 
-    private Consumer<EquityTransaction> etc = et -> {
+    private Consumer<Transaction> etc = et -> {
         System.out.println("This is equity etc");
-        System.out.println(et.getAction()+" "+et.getTicker()+" @ "+et.getPrice());
+        System.out.println(((EquityTransaction)et).getAction()+" "+((EquityTransaction)et).getTicker()+" @ "+((EquityTransaction)et).getPrice());
     };
 
 
     @Override
-    public void changeArbitrageStrategy(Consumer<EquityTransaction> consumer) {
+    public void changeArbitrageStrategy(Consumer<Transaction> consumer) {
         etc = consumer;
     }
 
     @Override
-    public Consumer<EquityTransaction> makeArbitrageStrategy() {
+    public Consumer<Transaction> makeArbitrageStrategy() {
         return etc;
     }
 }

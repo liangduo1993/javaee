@@ -1,9 +1,12 @@
 package com.ecvlearning.javaee.designPattern.visitor;
 
-public class Gic extends FixedIncomeTransaction{
+public class Bond extends FixedIncomeTransaction {
+
     private String symbol;
     private String action;
     private int price;
+    private int transactionFee;
+
 
     @Override
     public void accept(TradeStrategy ts) {
@@ -34,4 +37,11 @@ public class Gic extends FixedIncomeTransaction{
         this.price = price;
     }
 
+    public int getTransactionFee() {
+        return transactionFee;
+    }
+
+    public void setTransactionFee(int transactionFee) {
+        this.transactionFee = transactionFee;
+    }
 }

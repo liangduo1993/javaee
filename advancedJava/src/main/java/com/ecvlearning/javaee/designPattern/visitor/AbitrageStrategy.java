@@ -3,7 +3,7 @@ package com.ecvlearning.javaee.designPattern.visitor;
 public class AbitrageStrategy implements TradeStrategy{
 
     private boolean filter(EquityTransaction transaction) {
-        return transaction instanceof EquityTransaction && transaction.getPrice() > 100;
+        return transaction.getPrice() > 100;
     }
 
     @Override

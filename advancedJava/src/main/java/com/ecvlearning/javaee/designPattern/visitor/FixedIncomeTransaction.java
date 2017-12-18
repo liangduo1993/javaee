@@ -5,16 +5,19 @@ import java.util.List;
 
 public class FixedIncomeTransaction implements Transaction {
     private List<Gic> gics = new ArrayList<>();
+    private List<Bond> bond = new ArrayList<>();
+    private CaozongBit cb = null;
 
-    private String symbol;
-    private String action;
-    private int price;
-    private int transactionFee;
+    public FixedIncomeTransaction(){
+
+    }
+
 
     @Override
     public void accept(TradeStrategy ts) {
-        ts.trade(this);
         gics.forEach(item->item.accept(ts));
+        bond.forEach(item->item.accept(ts));
+        cb.accept(ts);
     }
 
     public List<Gic> getGics() {
@@ -25,35 +28,19 @@ public class FixedIncomeTransaction implements Transaction {
         this.gics = gics;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public List<Bond> getBond() {
+        return bond;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setBond(List<Bond> bond) {
+        this.bond = bond;
     }
 
-    public String getAction() {
-        return action;
+    public CaozongBit getCb() {
+        return cb;
     }
 
-    public void setAction(String action) {
-        this.action = action;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getTransactionFee() {
-        return transactionFee;
-    }
-
-    public void setTransactionFee(int transactionFee) {
-        this.transactionFee = transactionFee;
+    public void setCb(CaozongBit cb) {
+        this.cb = cb;
     }
 }
